@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home | DiaComp</title>
+<meta name="description" content="DiaComp: a calm digital companion that reduces the mental burden of living with Type 1 diabetes. Bilkent University CS 491/492 Senior Design Project.">
+<link rel="stylesheet" href="style.css">
+<script src="theme.js"></script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">Dia<span>Comp</span></a>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="system.html">System</a>
+      <a href="about.html">About and Documents</a>
+      <button class="theme-btn" aria-label="Toggle theme">☾</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <p class="eyebrow">CS 491/492 Senior Design Project · Bilkent University</p>
+    <h1>DiaComp</h1>
+    <p class="tagline">A calm digital companion that reduces the mental burden of living with Type 1 diabetes. It remembers the user's own past episodes and speaks only when it is likely to help.</p>
+  </div>
+
+  <section>
+    <h2>Project Overview</h2>
+    <p class="lead">DiaComp is a calm digital companion designed to reduce the mental burden of living with Type 1 diabetes. By continuously observing glucose data and learning from a user's past experiences, it aims to identify moments when timely support may be useful without adding to the constant stream of alarms and notifications already present in diabetes management.</p>
+    <p class="lead">Rather than replacing existing medical devices or treatment plans, DiaComp focuses on the overlooked emotional and cognitive side of the condition: helping users feel less alone and less anxious. Its core innovation is combining deterministic safety rules with personalized historical context and carefully constrained language-model-generated guidance to provide support only when it is genuinely needed.</p>
+  </section>
+
+  <section>
+    <h2>Why This Matters</h2>
+    <p class="lead">One of us has Type 1 diabetes and uses a continuous glucose monitor, a cordless insulin pump and an artificial pancreas algorithm. Blood sugar control is good, yet none of this equipment does anything about the mental side of the condition.</p>
+    <p class="muted">Compared to people without Type 1 diabetes, people with it have:</p>
+    <div class="grid">
+      <div class="card stat"><div class="num">2×</div><p>the chance of clinical depression</p></div>
+      <div class="card stat"><div class="num">2.25×</div><p>the risk of suicide</p></div>
+      <div class="card stat"><div class="num">2.4×</div><p>the chance of an eating disorder</p></div>
+    </div>
+    <p class="note" style="margin-top:12px">These are not caused by poor blood sugar control. They come with the condition itself.</p>
+  </section>
+
+  <section>
+    <h2>What Current Technology Covers</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Device</th><th>Solves</th><th>Does not solve</th></tr></thead>
+        <tbody>
+          <tr><td>Glucose monitor</td><td>Knowing the number</td><td class="gap">Having to keep checking it</td></tr>
+          <tr><td>Insulin pump</td><td>Delivering insulin accurately</td><td class="gap">Deciding when to act</td></tr>
+          <tr><td>Artificial pancreas</td><td>Holding blood sugar in range</td><td class="gap">Fear of the times it fails</td></tr>
+          <tr><td>Alarms and reports</td><td>Flagging a limit, summarising a week</td><td class="gap">How the day felt</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="muted" style="margin-top:12px">DiaComp works on the right-hand column.</p>
+  </section>
+
+  <section>
+    <h2>What We Target</h2>
+    <div class="grid">
+      <div class="card"><h3>Loneliness</h3><p>Decisions are made alone. There is usually nobody nearby who understands the situation, and the decisions keep coming.</p></div>
+      <div class="card"><h3>Constant anxiety</h3><p>A background fear of the next low or high, which does not stop, because the next one is always possible.</p></div>
+    </div>
+    <p class="note" style="margin-top:12px">This is our reading of the cause, not a proven mechanism. Neither is helped by better insulin delivery; both can be helped by software that shows up at the right moment and knows the user's history.</p>
+  </section>
+
+  <section>
+    <h2>Key Ideas</h2>
+    <div class="grid">
+      <div class="card"><h3>Episodic memory</h3><p>Other apps store a list of glucose numbers. DiaComp stores episodes: the situation, what it did, and what happened next.</p></div>
+      <div class="card"><h3>Silent by default</h3><p>Fixed algorithms decide whether a moment is worth a message. Most of the time, the answer is no.</p></div>
+      <div class="card"><h3>The LLM writes, never decides</h3><p>A language model phrases the message. Rules decide whether it is sent, and a safety layer checks it before display.</p></div>
+      <div class="card"><h3>Safety in code</h3><p>Limits are written in code, not in prompts, and covered by 380 automated tests.</p></div>
+    </div>
+    <p style="margin-top:14px"><a href="system.html">See how the system decides →</a></p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>DiaComp Senior Design Project Website</span>
+    <span>Bilkent University CS 491/492</span>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>System | DiaComp</title>
+<link rel="stylesheet" href="style.css">
+<script src="theme.js"></script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">Dia<span>Comp</span></a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="system.html" class="active">System</a>
+      <a href="about.html">About and Documents</a>
+      <button class="theme-btn" aria-label="Toggle theme">☾</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section>
+    <h2>How the System Decides</h2>
+    <div class="steps">
+      <div class="card step"><h3>Read</h3><p>CGM readings arrive about every five minutes.</p></div>
+      <div class="card step"><h3>Classify</h3><p>Fixed rules name the situation. No model is used here.</p></div>
+      <div class="card step highlight"><h3>Match</h3><p>Find similar past episodes of this user: glucose level, active insulin, time of day, meal.</p></div>
+      <div class="card step"><h3>Decide</h3><p>Send a message only if messages helped in those past cases.</p></div>
+      <div class="card step"><h3>Check</h3><p>A safety layer reads the message before the user sees it.</p></div>
+    </div>
+    <p class="muted" style="margin-top:12px">Step 3 is the part no current product has, and it is what makes step 4 possible.</p>
+  </section>
+
+  <section>
+    <h2>Episodic Memory</h2>
+    <p class="lead">An episode has three parts. Because the action is stored together with the result, the system can tell whether sending a message actually helped, which a statistics app cannot do.</p>
+    <div class="grid episode">
+      <div class="card"><p class="label">The situation</p><p>Falling, 82 mg/dL, insulin still active, 18:40, two hours after a meal.</p></div>
+      <div class="card"><p class="label">The action</p><p>A short warning was sent, or no message was sent and the reason was recorded.</p></div>
+      <div class="card"><p class="label">The result</p><p>The low was avoided, measured over the next six hours.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Use Cases</h2>
+    <div class="grid">
+      <div class="card"><h3>Before a low</h3><p>A short message at the point where acting early still prevents the low, because in similar past episodes acting at this point worked and waiting did not.</p></div>
+      <div class="card"><h3>During a low</h3><p>A reminder of what worked for this user before, such as a specific food or waiting a set time, and that they have handled this situation already.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Safety Limits</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>The system never</h3>
+        <ul class="plain">
+          <li>gives an insulin dose</li>
+          <li>gives a carbohydrate amount of its own</li>
+          <li>names an illness or diagnoses</li>
+          <li>tells the user they are safe</li>
+          <li>replaces a doctor or a care plan</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>How this is enforced</h3>
+        <ul class="plain">
+          <li>fixed rules decide, not the model</li>
+          <li>every message is checked before display</li>
+          <li>limits are written in code, not in prompts</li>
+          <li>personalisation changes timing, not limits</li>
+          <li>380 automated tests cover these rules</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Current State</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Working now</h3>
+        <ul class="plain">
+          <li>live CGM data read continuously</li>
+          <li>situation classification by fixed rules</li>
+          <li>safety layer with 380 automated tests</li>
+          <li>episodes recorded and scored automatically</li>
+          <li>a replay tool that tests past decisions against real recorded data</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>To build</h3>
+        <ul class="plain">
+          <li>using stored episodes to choose the message</li>
+          <li>adding insulin, meal and activity data to the match</li>
+          <li>trend prediction, to warn earlier</li>
+          <li>delivery to a phone</li>
+          <li>testing with users other than ourselves</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Planned Additions</h2>
+    <div class="grid">
+      <div class="card"><h3>Journal</h3><p>The user writes how they feel and what symptoms they have. This is stored with the episode and matched later.</p></div>
+      <div class="card"><h3>Size of response</h3><p>Not only whether to act, but how much, based on what this user's own corrections did before.</p></div>
+      <div class="card"><h3>Summarised patterns</h3><p>Many episodes combined into a few clear statements about the user, each with the number of cases behind it.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>DiaComp Senior Design Project Website</span>
+    <span>Bilkent University CS 491/492</span>
+  </div>
+</footer>
+</body>
+</html>
